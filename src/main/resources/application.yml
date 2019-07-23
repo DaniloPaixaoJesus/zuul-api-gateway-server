@@ -1,9 +1,22 @@
 spring:
   application:
     name: api-gateway
+  cloud:
+    config:
+      uri: http://localhost:9999
 server:
   port: 8080
 eureka:
   client:
     serviceUrl:
       defaultZone: http://${EUREKA_SERVER:localhost}:${EUREKA_PORT:8761}/eureka/
+zuul:
+  rotes:
+    drivers:
+      url: http://driver-service:8082
+    vehicle:
+      url: http://vehicle-service:8083
+    vehicletrack:
+      url: http://vehicle-track-service:8084 
+    vehiclewebsocket:
+      vehicle-websocket:8085
